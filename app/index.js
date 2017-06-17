@@ -17,5 +17,8 @@ app.on('ready', function() {
     })
     
     mainWindow.loadURL('file://' + __dirname + '/gui/index.html');
+    
+   
+   
   
 })

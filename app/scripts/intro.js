@@ -1,5 +1,6 @@
-const remote = require('electron').remote
-var version = remote.getGlobal('version')
+document.write(process.versions.electron)
+// io js
+var fs = require('fs')
 
-document.write(version)
+
 
