@@ -1,6 +1,7 @@
 const electron = module.require('electron')
 const {app} = electron
 const {BrowserWindow} = electron
+const {ClientRequest} = electron
 
 global.version = app.getVersion()
 
@@ -18,7 +19,7 @@ app.on('ready', function() {
     
     mainWindow.loadURL('file://' + __dirname + '/gui/index.html');
     
-   
+
    
   
 })
