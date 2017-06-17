@@ -1,0 +1,23 @@
+{
+  "name": "pmapp",
+  "version": "1.0.0",
+  "description": "Project Management billing",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ./app/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjedreski/ProjectMGMT.git"
+  },
+  "author": "Kevin Jedreski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjedreski/ProjectMGMT/issues"
+  },
+  "homepage": "https://github.com/kjedreski/ProjectMGMT#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^1.4.13"
+  }
+}
