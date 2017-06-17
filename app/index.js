@@ -2,6 +2,8 @@ const electron = module.require('electron')
 const {app} = electron
 const {BrowserWindow} = electron
 
+global.version = app.getVersion()
+
 
 app.on('ready', function() {
     
