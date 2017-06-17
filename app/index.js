@@ -13,5 +13,7 @@ app.on('ready', function() {
         y: 100,
         transparent: true
     })
-
+    
+    mainWindow.loadURL('file://' + __dirname + '/gui/index.html');
+  
 })
