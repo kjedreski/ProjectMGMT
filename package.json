@@ -19,5 +19,8 @@
   "homepage": "https://github.com/kjedreski/ProjectMGMT#readme",
   "devDependencies": {
     "electron-prebuilt": "^1.4.13"
+  },
+  "dependencies": {
+    "electron-json-storage": "^3.0.5"
   }
 }
