@@ -52,19 +52,7 @@ function AddTask() {
      } )
 }
 
-function LoadTasks() {
-    alert("In LoadTasks()")
-    storage.get('Tasks', function(error,data){
-        if (error) 
-            throw error;
-    })
-}
-
-
-
-//test function, read JSON data
-/******EVERYTHING BELOW IN TESTING PHASE **/
-function loadKeysTest( ) {
+function loadKeys( ) {
         debug("entered loadKeys")
     var list = document.getElementById("TaskList");
 
@@ -74,11 +62,16 @@ function loadKeysTest( ) {
        for (var key of keys) {
             var option = document.createElement("option");
             option.text = key;
+            option.value = key;
             list.add(option);
         }
     });
 }
 
+
+
+//test function, read JSON data
+/******EVERYTHING BELOW IN TESTING PHASE **/
 
 
 function loadCommentsTest() {
