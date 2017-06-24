@@ -5,22 +5,27 @@ const app = remote.app;
 
 
  function AddTask() {
-     alert("in fn")
+     //alert("in fn")
      //alert("path: " + app.getPath('userData'))
      let TaskName = document.getElementsByName("TaskName")[0].value
      storage.set('Tasks', {taskName: TaskName }, function(error) {
-         if (error) throw error;
+         if (error) 
+             throw error;
+         alert("success!")
      } )
+     alert("After set")
     //alert(document.getElementsByName("TaskName")[0].value )
 }
 
-
 function LoadTasks() {
-    
-storage.getAll(function(error, data) {
-  if (error) throw error;
-  alert(data["taskName"].value)
-  console.log(data);
-})
-    
+    alert("In LoadTasks()")
+    storage.get('Tasks', function(error,data){
+        if (error) app.console.log(data);
+        //var tasks[]
+        
+        //document.write()
+        alert(JSON.stringify(data.taskName))
+        //app.console.log(data)
+    })
+ 
 }

@@ -2,6 +2,7 @@ const electron = module.require('electron')
 const {app} = electron
 const {BrowserWindow} = electron
 const {ClientRequest} = electron
+const console = require('console');
 
 global.version = app.getVersion()
 
@@ -20,6 +21,6 @@ app.on('ready', function() {
     mainWindow.loadURL('file://' + __dirname + '/gui/index.html');
     
 
-   
+   app.console = new console.Console(process.stdout, process.stderr);
   
 })
