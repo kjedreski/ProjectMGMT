@@ -1,12 +1,20 @@
-// Add tas
+// CONFIG.JS
+// PURPOSE:  ALL CRUD OPERATIONS EXISTS HERE 
+
+
 const storage = require('electron-json-storage');
 const remote = require('electron').remote;
 const app = remote.app;
 
+function readStoragePath() {
+    app.console.log("Path: " + app.getPath('userData'))
+ }
 
- function AddTask() {
-     //alert("in fn")
-     //alert("path: " + app.getPath('userData'))
+function debug(debug) {
+    app.console.log(debug)
+}
+
+function AddTask() {
      let TaskName = document.getElementsByName("TaskName")[0].value
      storage.set('Tasks', {taskName: TaskName }, function(error) {
          if (error) 
@@ -20,12 +28,7 @@ const app = remote.app;
 function LoadTasks() {
     alert("In LoadTasks()")
     storage.get('Tasks', function(error,data){
-        if (error) app.console.log(data);
-        //var tasks[]
-        
-        //document.write()
-        alert(JSON.stringify(data.taskName))
-        //app.console.log(data)
+        if (error) 
+            throw error;
     })
- 
 }
