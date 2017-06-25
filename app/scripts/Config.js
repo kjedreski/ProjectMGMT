@@ -17,9 +17,13 @@ function debug(debug) {
 function alertTest() {
     alert("test")
 }
+//clear out drop down lists
+function clearList(list){
+    for ( var option = list.options.length - 1 ; option >= 0  ; option --) {
+        list.remove(option)
+    }
+}
 // ********************* //
-
-
 
 
 
@@ -67,19 +71,27 @@ function loadKeys( ) {
         }
     });
 }
+    
 
-
-
-//test function, read JSON data
-/******EVERYTHING BELOW IN TESTING PHASE **/
-
-
-function loadCommentsTest() {
- // return the task that has been selected
-    storage.get('SLO', function(error,data){
+function loadComments() {
+    var selectedTask = document.getElementById("TaskList").value;
+    var list = document.getElementById("CommentList")
+    
+    // we need to clear out all options
+    clearList(list)
+    
+    storage.get(selectedTask, function(error,data){
         if (error)
             throw error;
-     
+      
+        for (var prop in data) {
+            debug(data[prop].comment)
+            var option = document.createElement("option");
+            option.text = data[prop].comment;
+            option.value = prop;
+            list.add(option);
+            
+        } 
     })
 }
 
