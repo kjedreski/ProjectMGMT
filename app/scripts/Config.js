@@ -8,7 +8,7 @@ const storage = require('electron-json-storage');
 const remote = require('electron').remote;
 const app = remote.app;
 
-const utilities = require ('utils.js');
+var utilities = require( path.resolve( __dirname + "./utils.js" ) );
 // ** UTILITY FUNCTIONS **//
 function readStoragePath() {
     app.console.log("Path: " + app.getPath('userData'))
@@ -61,6 +61,7 @@ function AddTask() {
 
 function loadKeys( ) {
         debug("entered loadKeys")
+        debug(__dirname)
     var list = document.getElementById("TaskList");
   
     storage.keys(function(error, keys)   {
@@ -81,8 +82,9 @@ function loadComments() {
     var list = document.getElementById("CommentList")
     
     // we need to clear out all options
-    //utilities.clearList(list);
-    utilities.test();
+    utilities.clearList(list);
+   // debug(1)
+   // debug(utilities.square(3));
     
     
       debug("here")
