@@ -1,11 +1,14 @@
 // CONFIG.JS
+
 // PURPOSE:  ALL CRUD OPERATIONS EXISTS HERE 
-
-
+// PATTERNs: Exporting as an Object of functions
+  
+// ELECTRON DECLARATIONS
 const storage = require('electron-json-storage');
 const remote = require('electron').remote;
 const app = remote.app;
 
+const utilities = require ('utils.js');
 // ** UTILITY FUNCTIONS **//
 function readStoragePath() {
     app.console.log("Path: " + app.getPath('userData'))
@@ -18,11 +21,11 @@ function alertTest() {
     alert("test")
 }
 //clear out drop down lists
-function clearList(list){
+/*function clearList(list){
     for ( var option = list.options.length - 1 ; option >= 0  ; option --) {
         list.remove(option)
     }
-}
+} */
 // ********************* //
 
 
@@ -59,7 +62,7 @@ function AddTask() {
 function loadKeys( ) {
         debug("entered loadKeys")
     var list = document.getElementById("TaskList");
-
+  
     storage.keys(function(error, keys)   {
         if (error) throw error;
         
@@ -78,8 +81,11 @@ function loadComments() {
     var list = document.getElementById("CommentList")
     
     // we need to clear out all options
-    clearList(list)
+    //utilities.clearList(list);
+    utilities.test();
     
+    
+      debug("here")
     storage.get(selectedTask, function(error,data){
         if (error)
             throw error;
