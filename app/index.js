@@ -15,7 +15,9 @@ app.on('ready', function() {
         height: 500,
         x: 100,
         y: 100,
-        transparent: true
+        transparent: true,
+        maximizable: false,
+        toolbar: false
     })
     
     mainWindow.loadURL('file://' + __dirname + '/gui/index.html');

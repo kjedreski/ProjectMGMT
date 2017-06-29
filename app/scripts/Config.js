@@ -7,8 +7,11 @@
 const storage = require('electron-json-storage');
 const remote = require('electron').remote;
 const app = remote.app;
+var path = require("path")
 
-var utilities = require( path.resolve( __dirname + "./utils.js" ) );
+var utilities = require( path.resolve( __dirname, '../scripts/utils.js' ) );
+
+//var utilities = require(path.relative('C:/Users/jetsk/Desktop/electron/PMapp/app/gui', 'C:/Users/jetsk/Desktop/electron/PMapp/scripts/utils.js'))
 // ** UTILITY FUNCTIONS **//
 function readStoragePath() {
     app.console.log("Path: " + app.getPath('userData'))
@@ -46,7 +49,6 @@ function commentInput(){
 // ********** //
 
 
-
 function AddTask() {
     //Put a loop here and iterate through elements and add them to file
     //will want to build JSON Object in seperate function
@@ -60,8 +62,7 @@ function AddTask() {
 }
 
 function loadKeys( ) {
-        debug("entered loadKeys")
-        debug(__dirname)
+        debug(path.relative('C:/Users/jetsk/Desktop/electron/PMapp/app/gui', 'C:/Users/jetsk/Desktop/electron/PMapp/scripts/utils.js') )
     var list = document.getElementById("TaskList");
   
     storage.keys(function(error, keys)   {
@@ -84,7 +85,7 @@ function loadComments() {
     // we need to clear out all options
     utilities.clearList(list);
    // debug(1)
-   // debug(utilities.square(3));
+    //debug(utilities.square(3));
     
     
       debug("here")
