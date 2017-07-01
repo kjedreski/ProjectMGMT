@@ -1,4 +1,4 @@
-task biller
+task biller - Desktop application built on electron stack
 
 this app is used to track in real time how much time is being spent on a Task.
 
