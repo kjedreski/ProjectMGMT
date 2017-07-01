@@ -13,4 +13,4 @@ Total Time spent on Task : <comment #1 time>  + <comment #2 time>
 
 
 
-Refer to DataStructure.txt as to how the data is currently being stored
+Refer to Documentation/DataStructure.txt as to how the data is currently being stored
