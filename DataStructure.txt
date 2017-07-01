@@ -1,0 +1,34 @@
+--We are using JSON as a data store, and the electron-storage app which uses the HTML 5 local storage feature --
+-- data is stored   in C:\Users\<user>\AppData\Roaming\electron\storage
+-- there is a function inside utils.js which reads the file path where your local date is.
+
+
+Data structure is as follows for now:
+
+{
+    Timestamp: {
+        "Comment<#>": {
+            "comment": <some comment>,
+            "time": <hours spent on comment
+        }
+    }
+}
+
+
+EXAMPLE:
+
+{
+    "7/1/2017": {
+        "Comment1": {
+            "comment": "Grid Research",
+            "time": "4:44"
+        },
+          "Comment2": {
+            "comment": "Emails",
+            "time": "0:50"
+        },
+        
+    }
+        
+
+}
