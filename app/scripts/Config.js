@@ -8,38 +8,31 @@ const storage = require('electron-json-storage');
 const remote = require('electron').remote;
 const app = remote.app;
 var path = require("path")
-
+// UTILITIES LIB, ALL NON-DIRECT CRUD FUNCTIONS
 var utilities = require( path.resolve( __dirname, '../scripts/utils.js' ) );
 
-//var utilities = require(path.relative('C:/Users/jetsk/Desktop/electron/PMapp/app/gui', 'C:/Users/jetsk/Desktop/electron/PMapp/scripts/utils.js'))
-// ** UTILITY FUNCTIONS **//
-function readStoragePath() {
-    app.console.log("Path: " + app.getPath('userData'))
- }
+
+//NEEDED 
 function debug(debug) {
     app.console.log(debug)
     //alert(document.getElementsByName("TaskName")[0].value )
 }
-function alertTest() {
-    alert("test")
+
+// function loaded on page
+function initalizePage() {
+    //if you are debugging anything put them here first
+  //  var today = new Date();
+   // today.setHours(0,0,0,0)
+    // read this out to the humans but store date object into JSON object
+   // var printDate = today.toString().substring(4,15)
+    debug( utilities.buildDate())
+
+    
+    //Make comment list invisible for now
+    document.getElementById("CommentList").style.visibility = "hidden"
 }
-//clear out drop down lists
-/*function clearList(list){
-    for ( var option = list.options.length - 1 ; option >= 0  ; option --) {
-        list.remove(option)
-    }
-} */
-// ********************* //
 
 
-
-/**CRUD FUNCTIONS **/
-function BuildJson(comment){
-    //Put a loop here and iterate through elements and add them to file
-     let TaskName = document.getElementsByName("TaskName")[0].value;
-     let jsonData = "{ " + "comment1: " + comment + "}";   
-     return jsonData
-}
 
 /**Input functions**/
 function commentInput(){
@@ -62,7 +55,7 @@ function AddTask() {
 }
 
 function loadKeys( ) {
-        debug(path.relative('C:/Users/jetsk/Desktop/electron/PMapp/app/gui', 'C:/Users/jetsk/Desktop/electron/PMapp/scripts/utils.js') )
+     
     var list = document.getElementById("TaskList");
   
     storage.keys(function(error, keys)   {
@@ -74,6 +67,11 @@ function loadKeys( ) {
             option.value = key;
             list.add(option);
         }
+        
+        //now assign the {New} task
+        var option = document.createElement("option");
+        option.value = ""
+        
     });
 }
     
@@ -81,11 +79,10 @@ function loadKeys( ) {
 function loadComments() {
     var selectedTask = document.getElementById("TaskList").value;
     var list = document.getElementById("CommentList")
-    
+    //show comment list
+    list.style.visibility = "visible"
     // we need to clear out all options
     utilities.clearList(list);
-   // debug(1)
-    //debug(utilities.square(3));
     
     
       debug("here")

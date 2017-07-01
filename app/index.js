@@ -12,12 +12,13 @@ app.on('ready', function() {
     // will run a window when app starts
     let mainWindow = new BrowserWindow( {
         width: 300,
-        height: 500,
+        height: 300,
         x: 100,
         y: 100,
         transparent: true,
         maximizable: false,
-        toolbar: false
+        toolbar: false,
+        alwaysOnTop: true
     })
     
     mainWindow.loadURL('file://' + __dirname + '/gui/index.html');
